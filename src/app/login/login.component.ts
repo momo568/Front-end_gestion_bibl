@@ -6,7 +6,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'primeng/toast';  // Import ToastModule
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+// import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
  import { AuthenticationRequest } from '../Modules/AuthenticationRequest';
  
@@ -14,11 +14,14 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
+  standalone:true,
   imports: [
 
-    InputTextModule,BrowserAnimationsModule,ToastModule,
+    InputTextModule,
+    // BrowserAnimationsModule,
+    ToastModule,
     
-    BrowserModule,
+    // BrowserModule,
     FormsModule
     
   ]

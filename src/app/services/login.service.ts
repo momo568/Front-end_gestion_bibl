@@ -8,7 +8,7 @@ import { AuthenticationRequest } from '../Modules/AuthenticationRequest';
 })
 export class LoginService {
 
-  baseUrl="http://localhost:9090/api/user"
+  baseUrl="http://localhost:9090/projetnourouma/api/user"
   
   constructor( private httpclient: HttpClient) { }
 
