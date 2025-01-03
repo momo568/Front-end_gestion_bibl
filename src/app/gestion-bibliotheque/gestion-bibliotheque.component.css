@@ -1,0 +1,61 @@
+/* Conteneur principal */
+.main-container {
+  display: flex;
+  height: 100vh; /* Occupe toute la hauteur de la fenêtre */
+  align-items: center;
+}
+
+/* Image à gauche */
+.background {
+  flex: 1;
+}
+
+.background img {
+  width: 96%;
+  height: 200%;
+  object-fit: cover;
+}
+
+/* Formulaire */
+.form-container {
+  flex: 1;
+  max-width: 600px; /* Largeur maximale pour le formulaire */
+  padding: 20px;
+  background-color: #2b2b2b;
+  color: #fff;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"], input[type="password"], select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background-color: #3b3b3b;
+  color: #fff;
+}
+
+button.submit-btn {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button.submit-btn:hover {
+  background-color: #218838;
+}

@@ -1,0 +1,68 @@
+/* Style global */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+  }
+  
+  /* Conteneur principal de l'en-tête */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222; /* Couleur de fond de la barre */
+    color: white;
+    padding: 10px 20px;
+    height: 60px;
+  }
+  
+  /* Section gauche (Admin) */
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .admin-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .admin-icon {
+    font-size: 1.5rem;
+    color: #ff5500; /* Couleur de l'icône admin */
+    margin-right: 10px;
+  }
+  
+  .admin-name {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  /* Section droite (Documents) */
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .documents-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .documents-icon {
+    font-size: 1.5rem; /* Réduction de la taille de l'icône */
+    color: #ff5500; /* Couleur de l'icône */
+    margin-right: 10px;
+    display: inline-flex; /* Utilisez Flexbox pour centrer */
+    align-items: center; /* Alignez verticalement */
+    justify-content: center; /* Alignez horizontalement si nécessaire */
+    height: 30px; /* Taille fixe pour le conteneur */
+    width: 30px; /* Taille fixe pour le conteneur */
+  }
+  .documents-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+  }
+  
