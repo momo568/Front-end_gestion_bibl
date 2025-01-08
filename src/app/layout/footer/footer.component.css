@@ -1,0 +1,42 @@
+/* Center the content in the footer */
+.dark-footer .footer-widget {
+  text-align: center; /* Center text inside the footer-widget */
+  margin: 0 auto; /* Center the footer-widget container horizontally */
+}
+
+.footer-bottom {
+  background-color: #222; /* Optional: Dark background for bottom section */
+  color: #ccc; /* Optional: Light text color */
+  padding: 10px 0;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.footer-bottom-social {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Center social icons */
+  margin-top: 15px;
+}
+
+.footer-bottom-social li {
+  margin: 0 10px;
+}
+
+.footer-bottom-social li a {
+  color: #ccc;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom-social li a:hover {
+  color: #fff; /* Optional: Highlight color for social icons */
+}
+
+.f-logo {
+  margin-bottom: 10px; /* Space below the logo */
+}

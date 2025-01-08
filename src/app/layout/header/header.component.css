@@ -1,0 +1,163 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header Styling */
+  .header {
+    background: #f8f9fa; /* Light background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .header-light {
+    color: #343a40; /* Dark text */
+  }
+  
+  .header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .nav-brand img.logo {
+    max-height: 40px; /* Adjust logo size */
+    width: auto;
+  }
+  
+  /* Navigation Menu Styling */
+  .navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .nav-menus-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+  
+  /* Main Menu Links */
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-menu li {
+    margin: 0 15px;
+  }
+  
+  .nav-menu li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #343a40; /* Dark text color */
+    transition: color 0.3s ease;
+  }
+  
+  .nav-menu li a:hover {
+    color: #007bff; /* Blue on hover */
+  }
+  
+  /* Social Links and Action Buttons */
+  .nav-menu-social {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-menu-social li {
+    margin-left: 15px;
+  }
+  
+  .nav-menu-social .add-listing a {
+    background: #007bff; /* Blue background for button */
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+  }
+  
+  .nav-menu-social .add-listing a:hover {
+    background: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Mobile Toggle Button */
+  .nav-toggle {
+    display: none;
+    background: #007bff;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .nav-toggle:before {
+    content: "☰";
+    font-size: 20px;
+    color: #fff;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .nav-menus-wrapper {
+      display: none;
+      flex-direction: column;
+      background: #f8f9fa;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 10px 0;
+    }
+  
+    .nav-menus-wrapper.show {
+      display: flex;
+    }
+  
+    .nav-menu {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .nav-menu li {
+      margin: 10px 0;
+    }
+  
+    .nav-menu-social {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 10px;
+    }
+  
+    .nav-menu-social li {
+      margin: 10px 0;
+    }
+  
+    .nav-toggle {
+      display: flex;
+    }
+  }
+  

@@ -1,20 +1,15 @@
-<!-- <div class="login-container">
+<div class="login-container">
   <div class="background">
     <img src="assets/bib.png" alt="Background" />
-  </div> -->
-
-
-
-
+  </div>
   <section class="ftco-section">
     <div class="container">
-
       <div class="row justify-content-center">
         <div class="col-md-7 col-lg-5">
           <div class="login-wrap p-4 p-md-5">
             <div class="icon d-flex align-items-center justify-content-center">
-              <i class="pi pi-user" style="color: #fff ; font-size: 25px ;"></i>
-
+              <!-- Updated Icon -->
+              <i class="pi pi-book" style="color: #fff; font-size: 25px;"></i>
             </div>
             <h3 class="text-center mb-4">Log In</h3>
             <form action="#" class="login-form">
@@ -25,7 +20,7 @@
                   Login est nécessaire.
                 </small>
               </div>
-              <div class="form-group ">
+              <div class="form-group">
                 <input type="password" class="form-control rounded-left" name="password" [(ngModel)]="request.password"
                   placeholder="Password" required>
                 <small *ngIf="submitted && !request.password" class="text-danger">
@@ -36,19 +31,14 @@
                 <button type="submit" class="form-control btn btn-primary rounded submit px-3"
                   (click)="submit()">Login</button>
               </div>
-              <div class="form-group d-md-flex">
-                <div class="w-50">
-
-                </div>
-                <div class="w-50 text-md-right">
-                  <a href="#">Forgot Password</a>
-                </div>
+              <div class="overlay">
+                <p>Si vous n'avez pas un compte</p>
+                <button a routerLink="/inscription"  class="register-btn">S'inscrire</button>
               </div>
             </form>
           </div>
         </div>
       </div>
     </div>
-
   </section>
-  <p-toast></p-toast>
+</div>

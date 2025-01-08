@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from "../navbar/navbar.component";
+import { RouterModule } from '@angular/router';
+import { MenuItem, MessageService, ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [NavbarComponent],
+  imports: [RouterModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })

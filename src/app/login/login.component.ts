@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { LoginService } from '../services/login.service';
 import { InputTextModule } from 'primeng/inputtext';
@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./login.component.css'],
   standalone:true,
   imports: [
+    RouterModule,
 
     InputTextModule,
     // BrowserAnimationsModule,
@@ -25,6 +26,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule
     
   ]
+   
+ 
 })
 export class LoginComponent {
   request = new AuthenticationRequest();
@@ -38,7 +41,7 @@ export class LoginComponent {
 
   authenticate() {
     this.loginService.authenticate(this.request).subscribe({
-      next: (data) => {
+      next: () => {
         this.router.navigate(['/dashboard']);
       },
       error: (error) => {

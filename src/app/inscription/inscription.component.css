@@ -1,0 +1,60 @@
+/* Gradient Background */
+.gradient-custom {
+    background: linear-gradient(94deg, rgba(2, 0, 36, 1) 0%, rgba(16, 163, 184, 0.5) 46%, rgba(0, 212, 255, 1) 96%);
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+  }
+  
+  /* Card Styling */
+  .card-registration {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-registration h3 {
+    font-weight: bold;
+  }
+  
+  .card-registration .form-outline {
+    margin-bottom: 15px;
+  }
+  
+  .card-registration .form-label {
+    font-size: 0.9rem;
+    color: #6c757d;
+  }
+  
+  /* Connexion Button */
+  .btn-outline-success {
+    border: 2px solid #28a745;
+    color: #28a745;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .btn-outline-success:hover {
+    background: #28a745;
+    color: #ffffff;
+    border-color: #28a745;
+  }
+  
+  /* Submit Button */
+  .btn-primary {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .btn-primary:hover {
+    background-color: #003f8a;
+    color: white;
+  }
+  
