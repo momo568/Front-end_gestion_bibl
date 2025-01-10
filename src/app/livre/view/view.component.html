@@ -1,1 +1,30 @@
-<p>view works!</p>
+<div class="container">
+    <h1>Détails du Livre</h1>
+
+    <a routerLink="/dashboard/livre/index" class="btn btn-primary">Retour</a>
+
+    <div>
+        <strong>ID :</strong>
+        <p>{{ livre.id }}</p>
+    </div>
+
+    <div>
+        <strong>Titre :</strong>
+        <p>{{ livre.titre }}</p>
+    </div>
+
+    <div>
+        <strong>ISBN :</strong>
+        <p>{{ livre.isbn }}</p>
+    </div>
+
+    <div>
+        <strong>Date d'Édition :</strong>
+        <p>{{ livre.dateEdition   }}</p>
+    </div>
+
+    <div>
+        <strong>Catégorie :</strong>
+        <p>{{ livre.categorie }}</p>
+    </div>
+</div>

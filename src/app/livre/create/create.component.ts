@@ -64,7 +64,7 @@ export class CreateComponent {
     console.log(this.form.value);
     this.livreService.create(this.form.value).subscribe((res: any) => {
       console.log('Livre created successfully!');
-      this.router.navigateByUrl('livre/index'); // Redirect to the index page
-    });
+      this.router.navigateByUrl('/dashboard/livre/index');
+     });
   }
 }

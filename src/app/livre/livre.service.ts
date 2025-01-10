@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-
 import { Livre } from './livre';
 
 @Injectable({
@@ -58,10 +57,12 @@ export class LivreService {
    * @param livre Livre
    * @return Observable<Livre>
    */
-  update(id: number, livre: Livre): Observable<Livre> {
-    return this.httpClient.put<Livre>(`${this.apiURL}/update`, livre, this.httpOptions)
-      .pipe(catchError(this.errorHandler));
+  update(id: number, livre: any): Observable<Livre> {
+    return this.httpClient.put<Livre>(`${this.apiURL}/update/${id}`, livre, {
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
+  
 
   /**
    * Delete a Livre by ID

@@ -14,7 +14,7 @@ export interface Livre {
   providedIn: 'root'
 })
 export class LivreService {
-    baseUrl="http://localhost:9090/projetnourouma/api/livre"
+  private   baseUrl="http://localhost:9090/projetnourouma/api/livre"
 
   constructor(private http: HttpClient) {}
 
@@ -30,8 +30,8 @@ export class LivreService {
     return this.http.post<Livre>(`${this.baseUrl}/add`, livre);
   }
 
-  updateLivre(livre: Livre): Observable<Livre> {
-    return this.http.put<Livre>(`${this.baseUrl}/update`, livre);
+  updateLivre(id: number,livre: Livre): Observable<Livre> {
+    return this.http.put<Livre>(`${this.baseUrl}/update/${id}`, livre);
   }
 
   deleteLivre(id: number): Observable<void> {

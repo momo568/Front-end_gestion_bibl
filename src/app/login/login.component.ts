@@ -17,6 +17,7 @@ import { LivreModule } from '../livre/livre.module';
   styleUrls: ['./login.component.css'],
   standalone:true,
   imports: [
+    RouterModule,
     // RouterModule,LivreModule,
 
     // InputTextModule,

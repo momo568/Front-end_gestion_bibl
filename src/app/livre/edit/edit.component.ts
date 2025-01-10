@@ -6,6 +6,8 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Livre } from '../livre';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { SidebarComponent } from "../../sidebar/sidebar.component";
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-edit',
@@ -38,42 +40,54 @@ export class EditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Get the ID from the route parameters
-    this.id = this.route.snapshot.params['livreId'];
-    
-    // Fetch the Livre details
-    this.livreService.find(this.id).subscribe((data: Livre) => {
-      this.livre = data;
-
-      // Populate the form with the fetched data
-      this.form.patchValue({
-        titre: this.livre.titre,
-        isbn: this.livre.isbn,
-        dateEdition: this.livre.dateEdition,
-        categorie: this.livre.categorie
-      });
-    });
-
-    // Initialize the form
     this.form = new FormGroup({
       titre: new FormControl('', [Validators.required]),
       isbn: new FormControl('', [Validators.required]),
       dateEdition: new FormControl('', [Validators.required]),
       categorie: new FormControl('', [Validators.required])
     });
+  
+    this.id = this.route.snapshot.params['livreId'];
+  
+    this.livreService.find(this.id).subscribe((data: Livre) => {
+      this.livre = data;
+  
+      // Populate the form only after initialization
+      if (this.form) {
+        this.form.patchValue({
+          titre: this.livre.titre,
+          isbn: this.livre.isbn,
+          dateEdition: this.livre.dateEdition,
+          categorie: this.livre.categorie
+        });
+      }
+    });
   }
+  
 
   get f() {
     return this.form.controls;
   }
 
   submit(): void {
-    console.log(this.form.value);
-
+    if (this.form.invalid) {
+      console.error('Form is invalid');
+      return;
+    }
+  
+    console.log('Form data:', this.form.value);
+  
     // Update the Livre
-    this.livreService.update(this.id, this.form.value).subscribe((res: any) => {
-      console.log('Livre updated successfully!');
-      this.router.navigateByUrl('/dashboard/livre/index');
-    });
+    this.livreService.update(this.id, this.form.value).subscribe(
+      (res: Livre) => {
+        console.log('Livre updated successfully!', res);
+        this.router.navigateByUrl('/dashboard/livre/index');
+      },
+      (error) => {
+        console.error('Error updating livre:', error);
+      }
+    );
   }
+  
+  
 }
