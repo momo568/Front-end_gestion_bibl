@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ReservationsComponent } from '../reservations/reservations.component';
-import { LivreComponent } from '../livre/livre.component';
-import { RouterModule, RouterOutlet } from '@angular/router';
+ import { RouterModule, RouterOutlet } from '@angular/router';
  @Component({
   selector: 'app-sidebar',
   imports: [RouterModule],

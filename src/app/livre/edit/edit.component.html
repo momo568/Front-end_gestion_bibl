@@ -1,0 +1,60 @@
+<app-sidebar></app-sidebar>
+<div class="container">
+    <h1>Edit Livre</h1>
+  
+    <a routerLink="/dashboard/livre/index" class="btn btn-primary">Back</a>
+  
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label for="titre">Titre:</label>
+        <input 
+          type="text" 
+          id="titre" 
+          formControlName="titre" 
+          class="form-control">
+        <div *ngIf="f['titre'].touched && f['titre'].invalid" class="alert alert-danger">
+          Titre is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="isbn">ISBN:</label>
+        <input 
+          type="text" 
+          id="isbn" 
+          formControlName="isbn" 
+          class="form-control">
+        <div *ngIf="f['isbn'].touched && f['isbn'].invalid" class="alert alert-danger">
+          ISBN is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="dateEdition">Date of Edition:</label>
+        <input 
+          type="date" 
+          id="dateEdition" 
+          formControlName="dateEdition" 
+          class="form-control">
+        <div *ngIf="f['dateEdition'].touched && f['dateEdition'].invalid" class="alert alert-danger">
+          Date of Edition is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="categorie">Category:</label>
+        <select 
+          id="categorie" 
+          formControlName="categorie" 
+          class="form-control">
+          <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+        </select>
+        <div *ngIf="f['categorie'].touched && f['categorie'].invalid" class="alert alert-danger">
+          Category is required.
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-success" [disabled]="!form.valid">Update</button>
+    </form>
+  </div>
+  

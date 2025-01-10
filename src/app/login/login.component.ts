@@ -9,6 +9,7 @@ import { NgModule } from '@angular/core';
 // import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
  import { AuthenticationRequest } from '../Modules/AuthenticationRequest';
+import { LivreModule } from '../livre/livre.module';
  
 @Component({
   selector: 'app-login',
@@ -16,9 +17,9 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./login.component.css'],
   standalone:true,
   imports: [
-    RouterModule,
+    // RouterModule,LivreModule,
 
-    InputTextModule,
+    // InputTextModule,
     // BrowserAnimationsModule,
     ToastModule,
     
@@ -42,7 +43,7 @@ export class LoginComponent {
   authenticate() {
     this.loginService.authenticate(this.request).subscribe({
       next: () => {
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard/livre/index']);
       },
       error: (error) => {
         this.messageService.add({

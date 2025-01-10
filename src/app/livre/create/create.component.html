@@ -1,0 +1,67 @@
+<div class="container">
+    <h1>Create New Livre</h1>
+  
+    <a  routerLink="/dashboard/livre/index" class="btn btn-primary">Back</a>
+        
+    <form [formGroup]="form" (ngSubmit)="submit()">
+  
+        <div class="form-group">
+            <label for="titre">Titre:</label>
+            <input 
+                formControlName="titre"
+                id="titre" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f['titre'].touched && f['titre'].invalid" class="alert alert-danger">
+                <div *ngIf="f['titre'].errors && f['titre'].errors['required']">
+                Titre is required.
+                </div>
+            </div>
+        </div>
+  
+        <div class="form-group">
+            <label for="isbn">ISBN:</label>
+            <input 
+                formControlName="isbn"
+                id="isbn" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f['isbn'].touched && f['isbn'].invalid" class="alert alert-danger">
+                <div *ngIf="f['isbn'].errors && f['isbn'].errors['required']">
+                ISBN is required.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="dateEdition">Date of Edition:</label>
+            <input 
+                formControlName="dateEdition"
+                id="dateEdition" 
+                type="date" 
+                class="form-control">
+            <div *ngIf="f['dateEdition'].touched && f['dateEdition'].invalid" class="alert alert-danger">
+                <div *ngIf="f['dateEdition'].errors && f['dateEdition'].errors['required']">
+                Date of Edition is required.
+                </div>
+            </div>
+        </div>
+  
+        <div class="form-group">
+            <label for="categorie">Category:</label>
+            <select 
+                formControlName="categorie" 
+                id="categorie" 
+                class="form-control">
+                <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+            </select>
+            <div *ngIf="f['categorie'].touched && f['categorie'].invalid" class="alert alert-danger">
+                <div *ngIf="f['categorie'].errors && f['categorie'].errors['required']">
+                Category is required.
+                </div>
+            </div>
+        </div>
+  
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+</div>
