@@ -1,46 +1,32 @@
- 
+<app-sidebar></app-sidebar>
 <div class="container">
-<h1>Gestion des Réservations</h1>
-    
+    <h1>Gestion des reservations</h1>
+
     <div class="d-flex justify-content-end mb-3">
-        <a routerLink="/dashboard/reservation/create" class="btn btn-success">Créer une Nouvelle Réservation</a>
+        <a routerLink="/dashboard/reservation/create" class="btn btn-success">Créer une Nouvelle reservation</a>
     </div>
-      
+
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Date de Réservation</th>
-                <th>Date de Retour</th>
-                <th>Date d'Annulation</th>
+                <th>Date Retour</th>
+                <th>Date Annulation</th>
+                <th>Date Réservation</th>
                 <th width="250px">Actions</th>
             </tr>
         </thead>
         <tbody>
-            <!-- Static Sample Data for Reservations -->
-            <tr>
-                <td>1</td>
-                <td>01/01/2023</td>
-                <td>15/01/2023</td>
-                <td>10/01/2023</td>
+            <tr *ngFor="let reservation of reservations">
+                <td>{{ reservation.id }}</td>
+                <td>{{ reservation.dateRetour | date: 'dd/MM/yyyy' }}</td>
+                <td>{{ reservation.dateAnnulation | date: 'dd/MM/yyyy' }}</td>
+                <td>{{ reservation.dateReservation | date: 'dd/MM/yyyy' }}</td>
                 <td>
                     <div class="btn-group" role="group">
-                        <a href="#" class="btn btn-info btn-sm">Voir</a>
-                        <a href="#" class="btn btn-primary btn-sm">Modifier</a>
-                        <button type="button" class="btn btn-danger btn-sm">Supprimer</button>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>05/02/2023</td>
-                <td>20/02/2023</td>
-                <td>-</td>
-                <td>
-                    <div class="btn-group" role="group">
-                        <a href="#" class="btn btn-info btn-sm">Voir</a>
-                        <a href="#" class="btn btn-primary btn-sm">Modifier</a>
-                        <button type="button" class="btn btn-danger btn-sm">Supprimer</button>
+                        <a [routerLink]="['/dashboard/reservation', reservation.id, 'view']" class="btn btn-info btn-sm">Voir</a>
+                        <a [routerLink]="['/dashboard/reservation/', reservation.id, 'edit']" class="btn btn-primary btn-sm">Modifier</a>
+                        <button type="button" (click)="delete(reservation.id)" class="btn btn-danger btn-sm">Supprimer</button>
                     </div>
                 </td>
             </tr>

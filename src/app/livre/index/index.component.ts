@@ -11,7 +11,8 @@ import { EditComponent } from '../edit/edit.component';
 @Component({
   selector: 'app-index',
   standalone: true,
-  imports: [CommonModule, RouterModule, SidebarComponent,ViewLivreComponent,EditComponent],
+  imports: [CommonModule, RouterModule, 
+    SidebarComponent,ViewLivreComponent,EditComponent],
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css'] // Corrected to `styleUrls`
 })

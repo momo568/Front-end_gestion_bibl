@@ -4,7 +4,7 @@ import { ReservationModule } from '../reservation/reservation.module';
 import { IndexRComponent } from '../rerservation/index-r/index-r.component';
  @Component({
   selector: 'app-sidebar',
-  imports: [RouterModule,ReservationModule,IndexRComponent],
+  imports: [RouterModule,ReservationModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
