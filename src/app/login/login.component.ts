@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { LoginService } from '../services/login.service';
+import { LoginService } from '../Modules/login.service';
 import { InputTextModule } from 'primeng/inputtext';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'primeng/toast';  // Import ToastModule

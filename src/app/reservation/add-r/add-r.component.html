@@ -1,0 +1,81 @@
+<div class="container">
+  <h1>Create New Reservation</h1>
+
+  <a routerLink="/dashboard/reservation/index-r" class="btn btn-primary">Back</a>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <!-- User Dropdown -->
+    <div class="form-group">
+      <label for="userId">User:</label>
+      <select 
+        formControlName="userId" 
+        id="userId" 
+        class="form-control">
+        <option value="" disabled selected>Select a user</option>
+        <option *ngFor="let user of users" [value]="user.id">
+          {{ user.name }} (ID: {{ user.id }})
+        </option>
+      </select>
+      <div *ngIf="f['userId'].touched && f['userId'].invalid" class="alert alert-danger">
+        <div *ngIf="f['userId'].errors && f['userId'].errors['required']">
+          User is required.
+        </div>
+      </div>
+    </div>
+
+    <!-- Livre ID Field -->
+    <div class="form-group">
+      <label for="livreId">Livre ID:</label>
+      <input 
+        formControlName="livreId"
+        id="livreId" 
+        type="text" 
+        class="form-control">
+      <div *ngIf="f['livreId'].touched && f['livreId'].invalid" class="alert alert-danger">
+        <div *ngIf="f['livreId'].errors && f['livreId'].errors['required']">
+          Livre ID is required.
+        </div>
+      </div>
+    </div>
+
+    <!-- Date Fields -->
+    <div class="form-group">
+      <label for="dateReservation">Date of Reservation:</label>
+      <input 
+        formControlName="dateReservation"
+        id="dateReservation" 
+        type="date" 
+        class="form-control">
+      <div *ngIf="f['dateReservation'].touched && f['dateReservation'].invalid" class="alert alert-danger">
+        <div *ngIf="f['dateReservation'].errors && f['dateReservation'].errors['required']">
+          Date of Reservation is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="dateRetour">Date of Return:</label>
+      <input 
+        formControlName="dateRetour"
+        id="dateRetour" 
+        type="date" 
+        class="form-control">
+      <div *ngIf="f['dateRetour'].touched && f['dateRetour'].invalid" class="alert alert-danger">
+        <div *ngIf="f['dateRetour'].errors && f['dateRetour'].errors['required']">
+          Date of Return is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="dateAnnulation">Date of Cancellation (Optional):</label>
+      <input 
+        formControlName="dateAnnulation"
+        id="dateAnnulation" 
+        type="date" 
+        class="form-control">
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+  </form>
+</div>

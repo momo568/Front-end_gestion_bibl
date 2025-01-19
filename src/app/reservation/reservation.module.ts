@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { RouterLink, RouterModule } from '@angular/router';
-import { AddRComponent } from '../rerservation/add-r/add-r.component';
-import { EditRComponent } from '../rerservation/edit-r/edit-r.component';
-import { ViewRComponent } from '../rerservation/view-r/view-r.component';
-import { IndexRComponent } from '../rerservation/index-r/index-r.component';
+import { AddRComponent } from './add-r/add-r.component';
+import { EditRComponent } from './edit-r/edit-r.component';
+import { ViewRComponent } from './view-r/view-r.component';
+import { IndexRComponent } from './index-r/index-r.component';
 import { HttpClient } from '@angular/common/http';
   
 
@@ -15,7 +15,7 @@ import { HttpClient } from '@angular/common/http';
    
   imports: [
     CommonModule,
-    RouterModule, SidebarComponent,RouterLink ,AddRComponent,EditRComponent,ViewRComponent,IndexRComponent,
+    RouterModule, SidebarComponent,RouterLink ,AddRComponent,EditRComponent,ViewRComponent,IndexRComponent
   ]
 })
 export class ReservationModule { }

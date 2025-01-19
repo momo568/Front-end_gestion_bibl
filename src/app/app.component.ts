@@ -8,11 +8,11 @@ import { Footer } from 'primeng/api';
 import { FooterComponent } from './layout/footer/footer.component';
 import { AboutComponent } from "./pages/about/about.component";
 import { HomeComponent } from "./pages/home/home.component";
-import { IndexComponent } from './livre/index/index.component';
+import { IndexRComponent } from './reservation/index-r/index-r.component';
  
 @Component({
   selector: 'app-root',
-  imports: [RouterModule, HeaderComponent, FooterComponent, LoginComponent, HomeComponent],
+  imports: [RouterModule ,HeaderComponent, FooterComponent, LoginComponent, HomeComponent],
   standalone:true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

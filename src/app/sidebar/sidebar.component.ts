@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
- import { RouterModule, RouterOutlet } from '@angular/router';
+ import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { ReservationModule } from '../reservation/reservation.module';
-import { IndexRComponent } from '../rerservation/index-r/index-r.component';
+import { IndexRComponent } from '../reservation/index-r/index-r.component';
+import { CommonModule } from '@angular/common';
+import { IndexComponent } from '../livre/index/index.component';
  @Component({
   selector: 'app-sidebar',
-  imports: [RouterModule,ReservationModule],
+  imports: [RouterModule, ReservationModule, RouterLink, CommonModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })

@@ -6,12 +6,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterLink, RouterModule } from '@angular/router';
 import { ViewLivreComponent } from './view/view.component';
 import { EditComponent } from './edit/edit.component';
+import { IndexComponent } from './index/index.component';
  
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,HttpClientModule,SidebarComponent,RouterLink,ViewLivreComponent,EditComponent
+    CommonModule,SidebarComponent,RouterLink,ViewLivreComponent,EditComponent,IndexComponent
   ]
 })
 export class LivreModule { }

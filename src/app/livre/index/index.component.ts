@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { LivreService } from '../livre.service';
 import { Livre } from '../livre';
 import { SidebarComponent } from "../../sidebar/sidebar.component";
@@ -19,14 +19,10 @@ import { EditComponent } from '../edit/edit.component';
 export class IndexComponent {
 
   livres: Livre[] = [];
-  router: any;
-      
-  /*------------------------------------------
-  --------------------------------------------
-  Created constructor
-  --------------------------------------------
-  --------------------------------------------*/
-  constructor(public livreService: LivreService) { }
+ 
+  constructor(public livreService: LivreService,
+    private  router: Router
+  ) { }
   navigateToCreate(): void {
     this.router.navigate(['/dashboard/livre/create']);
   }
@@ -34,11 +30,18 @@ export class IndexComponent {
    * Fetch all Livres on component initialization
    */
   ngOnInit(): void {
-    this.livreService.getAll().subscribe((data: Livre[]) => {
-      this.livres = data;
-      console.log(this.livres);
-    });
+    this.livreService.getAll().subscribe(
+      (data: Livre[]) => {
+        console.log('Fetched livres:', data);
+        this.livres = data;
+      },
+      (error) => {
+        console.error('Error fetching livres:', error);
+      }
+    );
   }
+  
+  
       
   /**
    * Delete a Livre by ID

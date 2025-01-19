@@ -8,10 +8,10 @@ import { IndexComponent } from './livre/index/index.component';
  import { CreateComponent } from './livre/create/create.component';
 import { ViewLivreComponent } from './livre/view/view.component';
 import { ReservationModule } from './reservation/reservation.module';
-import { IndexRComponent } from './rerservation/index-r/index-r.component';
-import { ViewRComponent } from './rerservation/view-r/view-r.component';
-import { EditRComponent } from './rerservation/edit-r/edit-r.component';
-import { AddRComponent } from './rerservation/add-r/add-r.component';
+import { IndexRComponent } from './reservation/index-r/index-r.component';
+import { ViewRComponent } from './reservation/view-r/view-r.component';
+import { EditRComponent } from './reservation/edit-r/edit-r.component';
+import { AddRComponent } from './reservation/add-r/add-r.component';
 export const routes: Routes = [
   { path: 'login', loadComponent:()=>import ('./login/login.component').then( c=>c.LoginComponent) },
   { path: 'dashboard', component: DashboardComponent },
@@ -34,11 +34,22 @@ export const routes: Routes = [
     { path: 'dashboard/livre/create', component: CreateComponent },
     { path: 'dashboard/livre/:livreId/edit', component: EditComponent } ,
     
+    // { path: 'dashboard/reservation/index-r', component: IndexRComponent },
+    // { path: 'dashboard/reservation', redirectTo: 'reservation/indexR', pathMatch: 'full'},
+    // { path: 'dashboard/reservation/:reservationId/view', component: ViewRComponent  },
+    // { path: 'dashboard/reservation/create', component: AddRComponent },
+    // { path: 'dashboard/reservation/:reservationId/edit', component: EditRComponent } 
+
     { path: 'dashboard/reservation/index-r', component: IndexRComponent },
-    { path: 'dashboard/reservation', redirectTo: 'reservation/indexR', pathMatch: 'full'},
-    { path: 'dashboard/reservation/:reservationId/view', component: ViewRComponent  },
+    { path: 'dashboard/reservation', redirectTo: 'reservation/index-r', pathMatch: 'full'},
+
+     { path: 'dashboard/reservation/:id/view', component: ViewRComponent },
+    { path: 'dashboard/reservation/:id/edit', component: EditRComponent },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: 'dashboard/reservation/add', component: AddRComponent },
     { path: 'dashboard/reservation/create', component: AddRComponent },
-    { path: 'dashboard/reservation/:reservationId/edit', component: EditRComponent } 
+
+  
   ];
 
   // @NgModule({

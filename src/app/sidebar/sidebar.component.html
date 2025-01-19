@@ -1,26 +1,21 @@
-<div class="sidebar" [class.collapsed]="isCollapsed">
-    <button class="toggle-btn" (click)="toggleSidebar()">
-      <span *ngIf="!isCollapsed">&#9776; Collapse</span>
-      <span *ngIf="isCollapsed">&#9776; Expand</span>
-    </button>
-    <ul class="sidebar-menu">
+ <div class="sidebar" [class.collapsed]="isCollapsed">
+  <button class="toggle-btn" (click)="toggleSidebar()">
+    <span *ngIf="!isCollapsed">&#9776; Collapse</span>
+    <span *ngIf="isCollapsed">&#9776; Expand</span>
+  </button>
+  <ul class="sidebar-menu">
+    <li>
+      <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+    </li>
+    <li>
+      <a routerLink="/dashboard/livre/index" routerLinkActive="active">Livres Management</a>
+    </li>
+    <li>
+      <a routerLink="/dashboard/reservation/index-r" routerLinkActive="active">Reservations</a>
+    </li>
+  </ul>
+</div>
 
-      
-
-
-      <li>
-        <a routerLink="/dashboard" class="btn btn-outline-success btn-lg" routerLinkActive="active">Dashboard</a>
-
-
-       
-      </li>
-      <li>
-        <a routerLink="/dashboard/Livres" routerLinkActive="active">Livres Management</a>
-      </li>
-      
-      <li>
-        <a routerLink="/dashboard/reservation/index-r" routerLinkActive="active" >Reservations</a>
-      </li>
-    </ul>
-  </div>
-  
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

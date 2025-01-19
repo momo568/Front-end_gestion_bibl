@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { Livre } from './livre';
 
 @Injectable({
@@ -18,17 +18,27 @@ export class LivreService {
   };
 
   constructor(private httpClient: HttpClient) {}
-
-  /**
-   * Get all Livres
-   *
-   * @return Observable<Livre[]>
-   */
   getAll(): Observable<Livre[]> {
-    return this.httpClient.get<Livre[]>(`${this.apiURL}/getAll`)
-      .pipe(catchError(this.errorHandler));
+    return this.httpClient.get(`${this.apiURL}/getAll`, { responseType: 'text' }).pipe(
+      map((rawResponse) => {
+        try {
+          const parsedResponse = JSON.parse(rawResponse); // Manually parse the response
+          if (!Array.isArray(parsedResponse)) {
+            throw new Error('Response is not an array');
+          }
+          return parsedResponse as Livre[];
+        } catch (error) {
+          console.error('Failed to parse response:', rawResponse);
+          throw error; // Rethrow to handle in catchError
+        }
+      }),
+      catchError(this.errorHandler)
+    );
   }
-
+  
+  
+  
+  
   /**
    * Get a Livre by ID
    *
@@ -51,17 +61,12 @@ export class LivreService {
       .pipe(catchError(this.errorHandler));
   }
 
-  /**
-   * Update an existing Livre
-   *
-   * @param livre Livre
-   * @return Observable<Livre>
-   */
-  update(id: number, livre: any): Observable<Livre> {
-    return this.httpClient.put<Livre>(`${this.apiURL}/update/${id}`, livre, {
-      headers: { 'Content-Type': 'application/json' },
-    });
+  update(id: number, livre: Livre): Observable<Livre> {
+    return this.httpClient
+      .put<Livre>(`${this.apiURL}/update/${id}`, livre, this.httpOptions)
+      .pipe(catchError(this.errorHandler));
   }
+  
   
 
   /**
@@ -82,12 +87,18 @@ export class LivreService {
    * @return Observable<never>
    */
   errorHandler(error: any): Observable<never> {
-    let errorMessage = '';
+    let errorMessage = 'Unknown error occurred';
     if (error.error instanceof ErrorEvent) {
-      errorMessage = error.error.message;
+      console.error('Client-side error:', error.error.message);
+      errorMessage = `Client-side error: ${error.error.message}`;
     } else {
+      console.error(
+        `Server-side error:\nStatus: ${error.status}\nResponse Body:`,
+        error.error
+      );
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    return throwError(errorMessage);
+    return throwError(() => new Error(errorMessage));
   }
+  
 }
