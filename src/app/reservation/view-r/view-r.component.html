@@ -1,1 +1,26 @@
-<p>view-r works!</p>
+<div class="container">
+    <h1>Détails de la Réservation</h1>
+  
+    <a routerLink="/dashboard/reservation/index-r" class="btn btn-primary">Retour</a>
+  
+    <div>
+      <strong>ID :</strong>
+      <p>{{ reservation.id }}</p>
+    </div>
+  
+    <div>
+      <strong>Date de Retour :</strong>
+      <p>{{ reservation.dateRetour }}</p>
+    </div>
+  
+    <div>
+      <strong>Date d'Annulation :</strong>
+      <p>{{ reservation.dateAnnulation }}</p>
+    </div>
+  
+    <div>
+      <strong>Date de Réservation :</strong>
+      <p>{{ reservation.dateReservation }}</p>
+    </div>
+  </div>
+  

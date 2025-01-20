@@ -9,6 +9,14 @@ import { Livre } from './livre';
   providedIn: 'root',
 })
 export class LivreService {
+  getLivres /**
+ * Create a new Livre
+ *
+ * @param livre Livre
+ * @return Observable<Livre>
+ */() {
+    throw new Error('Method not implemented.');
+  }
   private apiURL = 'http://localhost:9090/projetnourouma/api/livre'; // Corrected base URL
 
   httpOptions = {

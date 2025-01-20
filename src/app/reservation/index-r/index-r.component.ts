@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterModule } from '@angular/router'; // Ajout de RouterModule
 import { Reservation, ReservationService } from '../../services/reservation.service';
 import { CommonModule } from '@angular/common';
 import { SidebarComponent } from "../../sidebar/sidebar.component";
@@ -11,9 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   templateUrl: './index-r.component.html',
   styleUrls: ['./index-r.component.css'], // Fixed typo
   standalone: true,
-  imports: [CommonModule,RouterLink,ReactiveFormsModule , AddRComponent, SidebarComponent],
-
-
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, AddRComponent, SidebarComponent], // Ajout de RouterModule
 })
 export class IndexRComponent implements OnInit {
   reservations: Reservation[] = [];
@@ -41,17 +39,17 @@ export class IndexRComponent implements OnInit {
     this.router.navigate(['/dashboard/reservation/add']);
   }
 
-  // Delete a reservation by ID with confirmation
   delete(id: number): void {
     if (confirm('Are you sure you want to delete this reservation?')) {
       this.reservationService.delete(id).subscribe({
         next: () => {
-          // Remove the deleted reservation from the list
+          // Suppression réussie, update la liste des réservations
           this.reservations = this.reservations.filter((item) => item.id !== id);
           console.log('Reservation deleted successfully!');
         },
         error: (err) => {
           console.error('Error deleting reservation:', err);
+          alert('An error occurred while deleting the reservation. Please try again.');
         },
       });
     }

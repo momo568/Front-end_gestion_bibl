@@ -1,1 +1,40 @@
-<p>edit-r works!</p>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="form-group" *ngIf="form">
+    <label for="utilisateurId">Utilisateur ID:</label>
+    <input id="utilisateurId" type="text" formControlName="utilisateurId" class="form-control" placeholder="Enter user ID" />
+    <div *ngIf="form.get('utilisateurId')?.invalid && form.get('utilisateurId')?.touched" class="text-danger">
+      Please enter a valid utilisateur ID.
+    </div>
+  </div>
+
+  <div class="form-group" *ngIf="form">
+    <label for="livreId">Livre ID:</label>
+    <input id="utilisateurId" type="text" formControlName="livreId" class="form-control" placeholder="Enter user ID" />
+    <div *ngIf="form.get('utilisateurId')?.invalid && form.get('livreId')?.touched" class="text-danger">
+      Please select a valid livre ID.
+    </div>
+  </div>
+
+  <div class="form-group" *ngIf="form">
+    <label for="dateReservation">Date de Réservation:</label>
+    <input id="dateReservation" type="date" formControlName="dateReservation" class="form-control" />
+    <div *ngIf="form.get('dateReservation')?.invalid && form.get('dateReservation')?.touched" class="text-danger">
+      Please enter a valid reservation date.
+    </div>
+  </div>
+
+  <div class="form-group" *ngIf="form">
+    <label for="dateRetour">Date de Retour:</label>
+    <input id="dateRetour" type="date" formControlName="dateRetour" class="form-control" />
+    <div *ngIf="form.get('dateRetour')?.invalid && form.get('dateRetour')?.touched" class="text-danger">
+      Please enter a valid return date.
+    </div>
+  </div>
+
+  <div class="form-group" *ngIf="form">
+    <label for="dateAnnulation">Date d'Annulation (optional):</label>
+    <input id="dateAnnulation" type="date" formControlName="dateAnnulation" class="form-control" />
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+</form>
